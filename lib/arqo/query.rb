@@ -7,8 +7,7 @@ module ARQO
     delegate_missing_to :relation
 
     def initialize(relation = derived_relation)
-      @relation = relation
-      @relation = @relation.extending(scope_module) if Object.const_defined?(scope_module_name)
+      @relation = relation.extending(scope_module)
     end
 
     private
@@ -21,12 +20,8 @@ module ARQO
       derived_relation_name.constantize.all if Object.const_defined?(derived_relation_name)
     end
 
-    def scope_module_name
-      "#{self.class}::Scope"
-    end
-
     def scope_module
-      scope_module_name.constantize
+      "#{self.class}::Scope".constantize
     end
   end
 end
