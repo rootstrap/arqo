@@ -2,6 +2,32 @@
 
 ARQO (Active Record Query Objects) is a minimal gem that let you use Query Objects in an easy and Rails friendly way. It leverages `ActiveRecord` features and tries to make query objects as intuitive as possible for developers. In combination with the documentation we hope `ARQO` helps people keep their projects well structured and healthy.
 
+![CI](https://github.com/rootstrap/arqo/workflows/ci/badge.svg)
+[![Maintainability](https://api.codeclimate.com/v1/badges/5ed2b32bfdf09746bd82/maintainability)](https://codeclimate.com/github/rootstrap/arqo/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/5ed2b32bfdf09746bd82/test_coverage)](https://codeclimate.com/github/rootstrap/arqo/test_coverage)
+
+## Table of Contents
+
+- [Motivation](#motivation)
+  - [Why ARQO?](#why-arqo)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Setting up a query object](#setting-up-a-query-object)
+- [Links](#links)
+- [Development](#development)
+- [Contributing](#contributing)
+- [License](#license)
+- [Code of Conduct](#code-of-conduct)
+- [Credits](#credits)
+
+## Motivation
+
+TODO
+
+### Why ARQO?
+
+TODO
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -21,6 +47,14 @@ Or install it yourself as:
 ## Usage
 
 TODO: Write usage instructions here
+
+### Setting up a query object
+
+TODO
+
+## Links
+
+TODO
 
 ## Development
 
@@ -43,3 +77,9 @@ Everyone interacting in the ARQO project's codebases, issue trackers, chat rooms
 
 ## Logo attribution
 Logo made by [iconixar](https://www.flaticon.com/free-icon/archery_3080892) from [www.flaticon.com](https://www.flaticon.com/)
+
+## Credits
+
+ARQO is maintained by [Rootstrap](http://www.rootstrap.com) with the help of our [contributors](https://github.com/rootstrap/arqo/contributors).
+
+[<img src="https://s3-us-west-1.amazonaws.com/rootstrap.com/img/rs.png" width="100"/>](http://www.rootstrap.com)
