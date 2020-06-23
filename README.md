@@ -25,17 +25,17 @@ ARQO (Active Record Query Objects) is a minimal gem that let you use Query Objec
 
 `ActiveRecord` provides us with an amazing abstraction of the database structure, allowing us to write queries in a simple way. Unfortunately, models can grow large for several reasons, one of them being adding a lot of scopes or placing querying logic in methods.
 
-For this reason is that we created `ARQO`, so that the query logic is separated into specific objects responsible to build the queries while not losing any of the benefits that Rails gives us.
+For this reason is that we created `ARQO`, so that the query logic is placed into specific objects responsible for building queries while not losing any of the benefits that Rails gives us.
 
 ### Why ARQO?
 
-- It is really simple but enough to have the best of Rails & query objects.
+- It is really simple, but still enough to have the best of Rails & query objects.
 
-- It will dynamically add scopes to your `ActiveRecord::Relation` instances, clearly making a separation of concerns by not adding them to the model itself.
+- It will dynamically add scopes to your `ActiveRecord::Relation` instances, clearly making a separation of concerns by not making them accessible through the model.
 
-- It support chaining methods defined in the query object just like when using Rails `scope`s.
+- It supports chaining methods defined in the query object just like when using Rails `scope`s.
 
-- It centralizes in a single source of truth the querying logic of your models.
+- It centralizes the querying logic of your models in a single source of truth.
 
 ## Installation
 
@@ -59,7 +59,7 @@ In the following sections we explain some basic usage and the API provided by th
 
 ### Setting up a query object
 
-In order to use an `ARQO` query object, you need to inherit from `ARQO::Query` and define the `Scope` module, for example:
+In order to use an `ARQO` query object, you need to inherit from `ARQO::Query` and define the `Scope` module inside it. Methods should be defined within the `Scope` module like this:
 ```ruby
 # app/queries/user_query.rb
 
@@ -97,7 +97,7 @@ CustomNamedQuery.new(User.all).active_last_week
 ```
 
 ## Chaining scopes
-Of course you can chain everything together, methods defined in the query object and scopes defined in the model and inside Rails.
+Of course you can chain everything together, methods defined in the query object and scopes defined in the model or by Rails.
 ```ruby
 # app/queries/user_query.rb
 
