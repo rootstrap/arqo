@@ -4,18 +4,9 @@ Style/Documentation:
 Layout/SpaceBeforeFirstArg:
   Exclude:
 
-Layout/SpaceAroundMethodCallOperator:
-  Enabled: true
-
 Lint/AmbiguousBlockAssociation:
   Exclude:
     - spec/**/*
-
-Lint/RaiseException:
-  Enabled: true
-
-Lint/StructNewOverride:
-  Enabled: true
 
 Metrics/AbcSize:
   # The ABC size is a calculated magnitude, so this number can be an Integer or
@@ -66,9 +57,6 @@ Metrics/ParameterLists:
 
 Metrics/PerceivedComplexity:
   Max: 12
-
-Style/ExponentialNotation:
-  Enabled: true
 
 Style/FrozenStringLiteralComment:
   Enabled: true
