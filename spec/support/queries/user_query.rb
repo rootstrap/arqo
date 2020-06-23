@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UserQuery < ARQO::Query
   module Scope
     def with_example_domain
