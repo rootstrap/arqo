@@ -1,4 +1,4 @@
-# ARQO
+# ARQO ![ARQO](docs/images/logo.png)
 
 ARQO (Active Record Query Objects) is a minimal gem that let you use Query Objects in an easy and Rails friendly way. It leverages `ActiveRecord` features and tries to make query objects as intuitive as possible for developers. In combination with the documentation we hope `ARQO` helps people keep their projects well structured and healthy.
 
@@ -40,3 +40,6 @@ The gem is available as open source under the terms of the [MIT License](https:/
 ## Code of Conduct
 
 Everyone interacting in the ARQO project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/santib/arqo/blob/master/CODE_OF_CONDUCT.md).
+
+## Logo attribution
+Logo made by [iconixar](https://www.flaticon.com/free-icon/archery_3080892) from [www.flaticon.com](https://www.flaticon.com/)
