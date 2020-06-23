@@ -13,7 +13,8 @@ ARQO (Active Record Query Objects) is a minimal gem that let you use Query Objec
 - [Installation](#installation)
 - [Usage](#usage)
   - [Setting up a query object](#setting-up-a-query-object)
-- [Links](#links)
+  - [Deriving the model](#deriving-the-model)
+  - [Chaining scopes](#chaining-scopes)
 - [Development](#development)
 - [Contributing](#contributing)
 - [License](#license)
@@ -22,11 +23,19 @@ ARQO (Active Record Query Objects) is a minimal gem that let you use Query Objec
 
 ## Motivation
 
-TODO
+`ActiveRecord` provides us with an amazing abstraction of the database structure, allowing us to form queries in a simple way. Unfortunately models can grow big for several reasons, one of them being adding a lot of scopes or placing querying logic in methods.
+
+For this reason is that we created `ARQO`, so that the query logic is separated into specific objects responsible to build the queries while not losing any of the benefits that Rails gives us.
 
 ### Why ARQO?
 
-TODO
+- It is really simple but enough to have the best of Rails & query objects.
+
+- It will dynamically add scopes to your `ActiveRecord::Relation` instances, clearly making a separation of concerns by not adding them to the model itself.
+
+- It support chaining methods defined in the query object just like when using Rails `scope`s.
+
+- It centralizes in a single source of truth the querying logic of your models.
 
 ## Installation
 
@@ -46,15 +55,69 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+In the following sections we explain some basic usage and the API provided by the gem.
 
 ### Setting up a query object
 
-TODO
+In order to use an `ARQO` query object, you need to inherit from `ARQO::Query` and define the `Scope` module, for example:
+```ruby
+# app/queries/user_query.rb
 
-## Links
+class UserQuery < ARQO::Query
+  module Scope
+    def active_last_week
+      where('last_active_at > ?', 1.week.ago)
+    end
+  end
+end
+```
 
-TODO
+And then you can use it from anywhere in your code.
+```ruby
+UserQuery.new.active_last_week
+```
+
+## Deriving the model
+In this previous example, the model was derived from the query object name. In case it's not derivable you should provide the `ActiveRecord::Relation` when initializing the query object, for example if you have:
+```ruby
+# app/queries/custom_named_query.rb
+
+class CustomNamedQuery < ARQO::Query
+  module Scope
+    def active_last_week
+      where('last_active_at > ?', 1.week.ago)
+    end
+  end
+end
+```
+
+you can use it like this:
+```ruby
+CustomNamedQuery.new(User.all).active_last_week
+```
+
+## Chaining scopes
+Of course you can chain everything together, methods defined in the query object and scopes defined in the model and inside Rails.
+```ruby
+# app/queries/user_query.rb
+
+class UserQuery < ARQO::Query
+  module Scope
+    def active_last_week
+      where('last_active_at > ?', 1.week.ago)
+    end
+
+    def not_deleted
+      where(deleted_at: nil)
+    end
+  end
+end
+```
+
+And then you chain everything together and it will just work :)
+```ruby
+UserQuery.new.where.not(name: nil).active_last_week.not_deleted.order(:id)
+```
 
 ## Development
 
