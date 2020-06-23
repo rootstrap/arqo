@@ -19,9 +19,13 @@ Gem::Specification.new do |spec|
   spec.files = Dir['LICENSE.txt', 'README.md', 'lib/**/*']
   spec.require_paths = ['lib']
 
+  spec.add_dependency 'activerecord', ['>= 4', '< 7']
+
+  spec.add_development_dependency 'database_cleaner-active_record', '~> 1.8.0'
   spec.add_development_dependency 'rake', '~> 13.0.1'
   spec.add_development_dependency 'reek', '~> 5.6.0'
   spec.add_development_dependency 'rspec', '~> 3.9.0'
   spec.add_development_dependency 'rubocop', '~> 0.80.0'
   spec.add_development_dependency 'simplecov', '~> 0.17.1'
+  spec.add_development_dependency 'sqlite3', '~> 1.4.2'
 end
