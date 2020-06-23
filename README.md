@@ -23,7 +23,7 @@ ARQO (Active Record Query Objects) is a minimal gem that let you use Query Objec
 
 ## Motivation
 
-`ActiveRecord` provides us with an amazing abstraction of the database structure, allowing us to form queries in a simple way. Unfortunately models can grow big for several reasons, one of them being adding a lot of scopes or placing querying logic in methods.
+`ActiveRecord` provides us with an amazing abstraction of the database structure, allowing us to write queries in a simple way. Unfortunately, models can grow large for several reasons, one of them being adding a lot of scopes or placing querying logic in methods.
 
 For this reason is that we created `ARQO`, so that the query logic is separated into specific objects responsible to build the queries while not losing any of the benefits that Rails gives us.
 
