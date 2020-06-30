@@ -96,6 +96,22 @@ you can use it like this:
 CustomNamedQuery.new(User.all).active_last_week
 ```
 
+you can also set the model class or relation to query from by overriding a simple method, like:
+
+```ruby
+class CustomNamedQuery < ARQO::Query
+  module Scope
+    # ...
+  end
+
+  private
+
+  def associated_relation
+    User # you can also do something like User.some_scope
+  end
+end
+```
+
 ## Chaining scopes
 Of course you can chain everything together, methods defined in the query object and scopes defined in the model or by Rails.
 ```ruby

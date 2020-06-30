@@ -6,7 +6,7 @@ module ARQO
     attr_reader :relation
     delegate_missing_to :relation
 
-    def initialize(relation = derived_relation)
+    def initialize(relation = associated_relation)
       @relation = relation.extending(scope_module)
     end
 
@@ -44,11 +44,7 @@ module ARQO
           '#associated_relation to provide a custom model'
       end
 
-      derived_relation_name.constantize
-    end
-
-    def derived_relation
-      associated_relation.all
+      derived_relation_name.constantize.all
     end
 
     def scope_module

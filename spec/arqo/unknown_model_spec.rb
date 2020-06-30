@@ -17,11 +17,16 @@ RSpec.describe 'Unknown model' do
   end
 
   describe '#new' do
-    subject { ForUserQuery.new(User.where.not(birthday: nil)) }
-
     context 'when initialized with an ActiveRecord::Relation' do
       it 'maintains the previously applied scopes' do
-        expect(subject.all.count).to eq(9)
+        query = ForUserQuery.new(User.where.not(birthday: nil))
+        expect(query.all.count).to eq(9)
+      end
+    end
+
+    context 'when the relation is derived' do
+      it 'throws an error since the model does not exist' do
+        expect { ForUserQuery.new }.to raise_error(NameError, /Could not find model ForUser/)
       end
     end
   end
