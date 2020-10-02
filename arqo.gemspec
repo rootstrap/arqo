@@ -21,6 +21,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'activerecord', ['>= 4', '< 7']
 
+  spec.add_development_dependency 'ammeter', '~> 1.1'
   spec.add_development_dependency 'database_cleaner-active_record', '~> 1.8.0'
   spec.add_development_dependency 'rake', '~> 13.0.1'
   spec.add_development_dependency 'reek', '~> 5.6.0'
