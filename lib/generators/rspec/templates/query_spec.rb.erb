@@ -1,0 +1,15 @@
+require 'rails_helper'
+
+<% module_namespacing do -%>
+RSpec.describe <%= class_name %>Query do
+  subject(:query) { described_class.new }
+
+  describe '#all' do
+    let!(:<%= table_name %>) { create_list(:<%= factory %>, 3) }
+
+    it 'returns all <%= plural_name.humanize %>' do
+      expect(query.all).to match_array(<%= table_name %>)
+    end
+  end
+end
+<% end -%>

@@ -1,0 +1,15 @@
+<% module_namespacing do -%>
+class <%= class_name %>Query < ARQO::Query
+  module Scope
+    # Add <%= class_name %> scopes here
+  end
+<% if associated_relation -%>
+
+  private
+
+  def associated_relation
+    <%= associated_relation %> # you can also do something like <%= associated_relation %>.some_scope
+  end
+<% end -%>
+end
+<% end -%>
