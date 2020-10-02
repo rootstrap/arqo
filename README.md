@@ -135,6 +135,49 @@ And then you chain everything together and it will just work :)
 UserQuery.new.where.not(name: nil).active_last_week.not_deleted.order(:id)
 ```
 
+## Generators
+
+To create the query object we can use the rails generator tool. For that, we just run:
+
+    $ rails generate query User
+
+And it will create your UserQuery object at `app/queries` folder. If you have set Rspec as your test framework, the corresponding spec file will be also created at `spec/queries`.
+
+:warning: Rspec is the only test framework supported for now.
+
+If your query object is based on another class, you can set the `associated_to` attribute to automatically override the `associated_relation` method.
+
+    $ rails generate query CustomUser assoacited_to:User
+
+### Model Generator
+
+Even, you could generate the query object when you create your rails models. To do that, you have to enable the query generators at your application config file adding the following line:
+
+```ruby
+# config/application.rb
+
+module App
+  class Application < Rails::Application
+    ...
+
+    config.generators do |g|
+      ...
+      g.query true # Added line
+    end
+  end
+end
+```
+
+Now, if you run the model generator:
+
+    $ rails generate model User
+
+The query object and spec will be created as well as the model, migrations, test files, etc.
+
+Another alternative, it is to add the `--query` option at the end of the command:
+
+    $ rails generate model User --query
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
