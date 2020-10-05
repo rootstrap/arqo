@@ -16,10 +16,6 @@ module ARQO
       def associated_relation_class
         associated_relation&.to_s&.classify
       end
-
-      def factory
-        (associated_to || class_name)&.to_s&.underscore
-      end
     end
   end
 end

@@ -4,12 +4,6 @@ require 'rails_helper'
 RSpec.describe <%= class_name %>Query do
   subject(:query) { described_class.new }
 
-  describe '#all' do
-    let!(:<%= table_name %>) { create_list(:<%= factory %>, 3) }
-
-    it 'returns all <%= plural_name.humanize %>' do
-      expect(query.all).to match_array(<%= table_name %>)
-    end
-  end
+  pending 'add some query object tests here'
 end
 <% end -%>
