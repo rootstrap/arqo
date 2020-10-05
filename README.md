@@ -15,6 +15,7 @@ ARQO (Active Record Query Objects) is a minimal gem that let you use Query Objec
   - [Setting up a query object](#setting-up-a-query-object)
   - [Deriving the model](#deriving-the-model)
   - [Chaining scopes](#chaining-scopes)
+  - [Generators](#generators)
 - [Development](#development)
 - [Contributing](#contributing)
 - [License](#license)

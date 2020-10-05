@@ -2,7 +2,7 @@
 
 require 'arqo/query'
 require 'arqo/version'
-require 'arqo/railtie' if defined?(Rails)
+require 'arqo/railtie'
 
 module ARQO
   class Error < StandardError; end
