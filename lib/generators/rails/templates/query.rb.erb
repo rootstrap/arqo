@@ -8,7 +8,7 @@ class <%= class_name %>Query < ARQO::Query
   private
 
   def associated_relation
-    <%= associated_relation %> # you can also do something like <%= associated_relation %>.some_scope
+    <%= associated_relation_class %> # you can also do something like <%= associated_relation_class %>.some_scope
   end
 <% end -%>
 end
