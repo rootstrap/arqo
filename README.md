@@ -152,7 +152,7 @@ If your query object is based on another class, you can set the `associated_rela
 
 ### Model Generator
 
-Even, you could generate the query object when you create your rails models. To do that, you have to enable the query generators at your application config file adding the following line:
+To generate the query object when you create your rails models, enable the query generators at your application config file adding the following line:
 
 ```ruby
 # config/application.rb
