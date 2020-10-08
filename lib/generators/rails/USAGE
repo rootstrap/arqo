@@ -1,0 +1,38 @@
+Usage:
+  rails generate query NAME [associated_relation[:model]]
+
+Description:
+    Generates a new ARQO query object at app/queries. Pass the generator name
+    as an argument, either CamelCased or snake_cased, and an optional
+    attribute 'associated_relation' as an argument.
+
+    The 'associated_relation' attribute expects an ActiveRecord class as value. This
+    is useful for cases where you want to override the associated relation in
+    the query object.
+
+    This generator invokes your configured ORM and test framework, which Active
+    Record and Rspec are the only ones supported at the moment.
+
+Example:
+    `rails generate query Account`
+
+    Creates a standard account query object and the spec file.
+
+        Query Object:   app/queries/account_query.rb
+        Rspec:          spec/queries/account_query.rb
+
+    `rails generate query Admin::Account`
+
+    Creates an account query object and the spec file following the namespace
+    location.
+
+        Query Object:   app/queries/admin/account_query.rb
+        Rspec:          spec/queries/admin/account_query.rb
+
+    `rails generate query Account associated_relation:User`
+
+    Creates an account query object and the spec file including the
+    specification of the `associated_relation` method.
+
+        app/queries/account_query.rb
+        spec/queries/account_query.rb

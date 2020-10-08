@@ -4,6 +4,8 @@ require 'bundler/setup'
 require 'simplecov'
 require 'active_record'
 require 'database_cleaner/active_record'
+require 'action_controller/railtie'
+require 'ammeter/init'
 
 ActiveRecord::Base.establish_connection adapter: 'sqlite3', database: ':memory:'
 

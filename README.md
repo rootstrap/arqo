@@ -15,6 +15,7 @@ ARQO (Active Record Query Objects) is a minimal gem that let you use Query Objec
   - [Setting up a query object](#setting-up-a-query-object)
   - [Deriving the model](#deriving-the-model)
   - [Chaining scopes](#chaining-scopes)
+  - [Generators](#generators)
 - [Development](#development)
 - [Contributing](#contributing)
 - [License](#license)
@@ -134,6 +135,49 @@ And then you chain everything together and it will just work :)
 ```ruby
 UserQuery.new.where.not(name: nil).active_last_week.not_deleted.order(:id)
 ```
+
+## Generators
+
+To create the query object we can use the rails generator tool. For that, we just run:
+
+    $ rails generate query User
+
+And it will create your UserQuery object at `app/queries` folder. If you have set Rspec as your test framework, the corresponding spec file will be also created at `spec/queries`.
+
+:warning: Rspec is the only test framework supported for now.
+
+If your query object is based on another class, you can set the `associated_relation` attribute to automatically override the `associated_relation` method.
+
+    $ rails generate query CustomUser associated_relation:User
+
+### Model Generator
+
+To generate the query object when you create your rails models, enable the query generators at your application config file adding the following line:
+
+```ruby
+# config/application.rb
+
+module App
+  class Application < Rails::Application
+    ...
+
+    config.generators do |g|
+      ...
+      g.query true # Added line
+    end
+  end
+end
+```
+
+Now, if you run the model generator:
+
+    $ rails generate model User
+
+The query object and spec will be created as well as the model, migrations, test files, etc.
+
+Another alternative, it is to add the `--query` option at the end of the command:
+
+    $ rails generate model User --query
 
 ## Development
 
