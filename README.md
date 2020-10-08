@@ -148,7 +148,7 @@ And it will create your UserQuery object at `app/queries` folder. If you have se
 
 If your query object is based on another class, you can set the `associated_relation` attribute to automatically override the `associated_relation` method.
 
-    $ rails generate query CustomUser assoacited_to:User
+    $ rails generate query CustomUser associated_relation:User
 
 ### Model Generator
 
