@@ -20,8 +20,8 @@ jobs:
       uses: actions/setup-ruby@v1
       with:
         ruby-version: ${{ matrix.ruby_version }}
-    - name: Update rubygems when testing with Ruby 2.7.x
-      if: startsWith(matrix.ruby_version, '2.7')
+    - name: Update rubygems when testing with Ruby 2.4.x
+      if: startsWith(matrix.ruby_version, '2.4')
       run: |
         gem update --system --no-document
     - name: Before build
