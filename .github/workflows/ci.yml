@@ -11,9 +11,19 @@ jobs:
         ruby_version: [2.4.x, 2.5.x, 2.6.x, 2.7.x, 3.0.x]
         exclude:
           - gemfile: rails_master.gemfile
-            ruby_version: 2.7.x
+            ruby_version: 2.4.x
+          - gemfile: rails_master.gemfile
+            ruby_version: 2.5.x
+          - gemfile: rails_master.gemfile
+            ruby_version: 2.6.x
           - gemfile: rails_7.0.0.gemfile
-            ruby_version: 2.7.x
+            ruby_version: 2.4.x
+          - gemfile: rails_7.0.0.gemfile
+            ruby_version: 2.5.x
+          - gemfile: rails_7.0.0.gemfile
+            ruby_version: 2.6.x
+          - gemfile: rails_6.0.0.gemfile
+            ruby_version: 2.4.x
     steps:
     - uses: actions/checkout@v2
     - name: Set up Ruby
