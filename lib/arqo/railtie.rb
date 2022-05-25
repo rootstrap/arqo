@@ -2,7 +2,7 @@
 
 require 'rails/railtie'
 
-module ActiveModel
+module ARQO
   class Railtie < Rails::Railtie
     generators do |app|
       Rails::Generators.configure! app.config.generators
