@@ -15,6 +15,7 @@ Gem::Specification.new do |spec|
 
   spec.metadata['homepage_uri'] = spec.homepage
   spec.metadata['source_code_uri'] = 'https://github.com/rootstrap/arqo'
+  spec.metadata['rubygems_mfa_required'] = 'true'
 
   spec.files = Dir['LICENSE.txt', 'README.md', 'lib/**/*']
   spec.require_paths = ['lib']
@@ -29,5 +30,4 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop', '~> 1.24.1'
   spec.add_development_dependency 'simplecov', '~> 0.17.1'
   spec.add_development_dependency 'sqlite3', '~> 1.4.2'
-  spec.metadata['rubygems_mfa_required'] = 'true'
 end
