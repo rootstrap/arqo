@@ -5,12 +5,12 @@ require 'rails/generators/named_base'
 module ARQO
   module Generators
     class NamedBase < Rails::Generators::NamedBase
-      argument :attributes, type: :array, default: [], banner: 'associated_relation[:class_name]'
+      class_option :associated_relation, type: :string, default: nil
 
       private
 
       def associated_relation
-        attributes.find { |attribute| attribute.name == 'associated_relation' }&.type
+        @associated_relation ||= options['associated_relation']
       end
 
       def associated_relation_class
