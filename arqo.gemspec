@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
   spec.files = Dir['LICENSE.txt', 'README.md', 'lib/**/*']
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'activerecord', ['>= 4']
+  spec.add_dependency 'activerecord', ['>= 5.2']
 
   spec.add_development_dependency 'ammeter', '~> 1.1'
   spec.add_development_dependency 'database_cleaner-active_record', '~> 1.8.0'
