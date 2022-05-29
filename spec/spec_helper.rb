@@ -14,9 +14,9 @@ SimpleCov.start do
 end
 
 require 'arqo'
-load File.dirname(__FILE__) + '/support/schema.rb'
-require File.dirname(__FILE__) + '/support/models.rb'
-require File.dirname(__FILE__) + '/support/queries.rb'
+load "#{File.dirname(__FILE__)}/support/schema.rb"
+require "#{File.dirname(__FILE__)}/support/models.rb"
+require "#{File.dirname(__FILE__)}/support/queries.rb"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
