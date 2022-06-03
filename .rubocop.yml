@@ -1,3 +1,8 @@
+AllCops:
+  TargetRubyVersion: 2.5
+  SuggestExtensions: false
+  NewCops: enable
+
 Style/Documentation:
   Enabled: false
 
@@ -20,7 +25,7 @@ Metrics/BlockLength:
     - '*.gemspec'
     - config/**/*
     - spec/**/*
-  ExcludedMethods:
+  IgnoredMethods:
     - class_methods
 
 Metrics/BlockNesting:

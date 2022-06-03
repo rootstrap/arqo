@@ -4,6 +4,7 @@ module ARQO
   # Parent class for query objects
   class Query
     attr_reader :relation
+
     delegate_missing_to :relation
 
     def initialize(relation = associated_relation)
@@ -40,8 +41,8 @@ module ARQO
 
       unless Object.const_defined?(derived_relation_name)
         raise NameError, "Could not find model #{derived_relation_name} associated " \
-          "to query #{class_name}.\n Make sure the name is correct or override " \
-          '#associated_relation to provide a custom model'
+                         "to query #{class_name}.\n Make sure the name is correct or override " \
+                         '#associated_relation to provide a custom model'
       end
 
       derived_relation_name.constantize.all

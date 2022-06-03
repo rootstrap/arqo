@@ -56,7 +56,7 @@ RSpec.describe Rails::Generators::QueryGenerator do
 
       context 'with associated_relation attribute' do
         context 'when attribute type is CamelCased value' do
-          before { run_generator %w[YourModel associated_relation:MainModel] }
+          before { run_generator %w[YourModel --associated_relation=MainModel] }
 
           it 'creates a method named associated_relation' do
             expect(subject).to have_method(:associated_relation).containing('MainModel')
@@ -64,7 +64,7 @@ RSpec.describe Rails::Generators::QueryGenerator do
         end
 
         context 'when attribute type is snake_cased value' do
-          before { run_generator %w[YourModel associated_relation:main_model] }
+          before { run_generator %w[YourModel --associated_relation=main_model] }
 
           it 'creates a method named associated_relation' do
             expect(subject).to have_method(:associated_relation).containing('MainModel')

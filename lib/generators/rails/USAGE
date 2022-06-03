@@ -1,5 +1,5 @@
 Usage:
-  rails generate query NAME [associated_relation[:model]]
+  rails generate query NAME [--associated_relation=model]
 
 Description:
     Generates a new ARQO query object at app/queries. Pass the generator name
